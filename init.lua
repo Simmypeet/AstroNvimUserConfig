@@ -17,12 +17,12 @@ return {
     },
   },
   -- Set colorscheme to use
-  colorscheme = "gruvbox-material",
+  colorscheme = "catppuccin",
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,
     underline = true,
-    update_in_insert = true,
+    update_in_insert = false,
   },
   lsp = {
     -- customize lsp formatting options
@@ -99,5 +99,11 @@ return {
         client.server_capabilities.semanticTokensProvider = nil
       end,
     });
+
+    -- set tab size to 4 spaces
+    vim.o.tabstop = 4
+    vim.o.shiftwidth = 4
+    vim.o.softtabstop = 4
+    vim.o.expandtab = true
   end,
 }
