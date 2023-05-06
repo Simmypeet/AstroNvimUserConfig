@@ -134,13 +134,6 @@ return {
     end
   },
   {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function()
-      require("lsp_signature").setup()
-    end,
-  },
-  {
     "907th/vim-auto-save",
     init = function(_)
       vim.g.auto_save = 1
@@ -163,18 +156,6 @@ return {
           }
         },
       })
-    end,
-  },
-  {
-    -- trouble
-    "folke/trouble.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
     end,
   },
   {

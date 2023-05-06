@@ -22,7 +22,7 @@ return {
   diagnostics = {
     virtual_text = true,
     underline = true,
-    update_in_insert = false,
+    update_in_insert = true,
   },
   lsp = {
     -- customize lsp formatting options
@@ -52,8 +52,15 @@ return {
     setup_handlers = {
       -- add custom handler
       rust_analyzer = function(_, opts)
-        -- disable semantic token highlighting
         require("rust-tools").setup {
+          tools = {
+            -- disable inlay hint
+            inlay_hints = {
+              auto = false,
+              only_current_line = false,
+              show_parameter_hints = false,
+            },
+          },
           server = {
             on_attach = opts.on_attach,
             capabilities = opts.capabilities,
@@ -103,7 +110,6 @@ return {
     -- set tab size to 4 spaces
     vim.o.tabstop = 4
     vim.o.shiftwidth = 4
-    vim.o.softtabstop = 4
     vim.o.expandtab = true
   end,
 }
